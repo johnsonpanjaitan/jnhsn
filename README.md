@@ -1,1 +1,1 @@
-# jnhsn
+# Tugas jquery individu
