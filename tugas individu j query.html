@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tugas jQuery Penyaring Usia</title>
+    <!-- Load library jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- CSS super simpel (hanya untuk merapikan jarak) -->
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        .input-box {
+            margin-bottom: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Tugas Penyaring Usia Pengunjung</h3>
+
+    <div class="input-box">
+        <label for="nama">Nama</label>
+        <input type="text" id="nama">
+    </div>
+
+    <div class="input-box">
+        <label for="usia">Usia</label>
+        <input type="number" id="usia">
+    </div>
+
+    <br>
+    <button id="btn-proses">PROSES</button>
+    <button id="btn-clear">CLEAR</button>
+
+    <!-- Logika Program Javascript & jQuery -->
+    <script>
+        $(document).ready(function() {
+
+            // Tombol PROSES diklik
+            $("#btn-proses").click(function() {
+                var nama = $("#nama").val();
+                var usia = $("#usia").val();
+
+                // Cek kalau ada yang kosong
+                if (nama == "" || usia == "") {
+                    alert("Nama dan usia harus diisi!");
+                    return;
+                }
+
+                // Ubah usia ke angka
+                usia = parseInt(usia);
+
+                // Cek kondisi usia di atas 27
+                if (usia > 27) {
+                    alert("HELLO, " + nama.toUpperCase() + "\nANDA BOLEH MASUK");
+                } else {
+                    alert("HELLO, " + nama.toUpperCase() + "\nANDA TIDAK BOLEH MASUK");
+                }
+            });
+
+            // Tombol CLEAR diklik
+            $("#btn-clear").click(function() {
+                $("#nama").val("");
+                $("#usia").val("");
+            });
+
+        });
+    </script>
+
+</body>
+</html>
